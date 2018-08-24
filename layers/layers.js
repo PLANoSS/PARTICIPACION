@@ -5,9 +5,9 @@ var baseLayer = new ol.layer.Group({
 new ol.layer.Tile({
     'title': 'OpenMapSurfer adminb',
     'type': 'base',
-    source: new ol.source.XYZ({
-        url: 'http://openmapsurfer.uni-hd.de/tiles/adminb/x={x}&y={y}&z={z}',
-        attributions: [new ol.Attribution({html: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @University of Heidelberg</a> &mdash; Map data:&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'})]
+   source: new ol.source.XYZ({
+        url: 'http://{a-c}.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png',
+        attributions: [new ol.Attribution({html: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'})]
     })
 })
 ]
@@ -62,17 +62,22 @@ jsonSource_Nohapertenecidoaningunaorganizacin_2.addFeatures(features_Nohapertene
     <img src="styles/legend/Nohapertenecidoaningunaorganizacin_2_4.png" />  80 - 100 <br />'
         });
 
-lyr_Notieneconocimientosobreelpoderdelaparticipacinciudadana_0.setVisible(true);lyr_Nohaformadopartedeningntipodeorganizacin_1.setVisible(true);lyr_Nohapertenecidoaningunaorganizacin_2.setVisible(true);
+lyr_Notieneconocimientosobreelpoderdelaparticipacinciudadana_0.setVisible(false);lyr_Nohaformadopartedeningntipodeorganizacin_1.setVisible(false);lyr_Nohapertenecidoaningunaorganizacin_2.setVisible(true);
+
 var layersList = [baseLayer,lyr_Notieneconocimientosobreelpoderdelaparticipacinciudadana_0,lyr_Nohaformadopartedeningntipodeorganizacin_1,lyr_Nohapertenecidoaningunaorganizacin_2];
+
 lyr_Notieneconocimientosobreelpoderdelaparticipacinciudadana_0.set('fieldAliases', {'Codigo': 'Codigo', 'Cantón': 'Cantón', 'Provincia': 'Provincia', 'Grafica': 'Grafica', 'No': 'No', });
 lyr_Nohaformadopartedeningntipodeorganizacin_1.set('fieldAliases', {'Codigo': 'Codigo', 'Cantón': 'Cantón', 'Provincia': 'Provincia', 'Grafica': 'Grafica', 'Ninguno de': 'Ninguno de', });
 lyr_Nohapertenecidoaningunaorganizacin_2.set('fieldAliases', {'Codigo': 'Codigo', 'Cantón': 'Cantón', 'Provincia': 'Provincia', 'Grafica': 'Grafica', 'PD58_PD58T': 'PD58_PD58T', });
+
 lyr_Notieneconocimientosobreelpoderdelaparticipacinciudadana_0.set('fieldImages', {'Codigo': 'Hidden', 'Cantón': 'TextEdit', 'Provincia': 'TextEdit', 'Grafica': 'Photo', 'No': 'Hidden', });
 lyr_Nohaformadopartedeningntipodeorganizacin_1.set('fieldImages', {'Codigo': 'Hidden', 'Cantón': 'TextEdit', 'Provincia': 'TextEdit', 'Grafica': 'Photo', 'Ninguno de': 'Hidden', });
-lyr_Nohapertenecidoaningunaorganizacin_2.set('fieldImages', {'Codigo': 'TextEdit', 'Cantón': 'TextEdit', 'Provincia': 'TextEdit', 'Grafica': 'Photo', 'PD58_PD58T': 'TextEdit', });
+lyr_Nohapertenecidoaningunaorganizacin_2.set('fieldImages', {'Codigo': 'Hidden', 'Cantón': 'TextEdit', 'Provincia': 'TextEdit', 'Grafica': 'Photo', 'PD58_PD58T': 'Hidden', });
+
 lyr_Notieneconocimientosobreelpoderdelaparticipacinciudadana_0.set('fieldLabels', {'Cantón': 'no label', 'Provincia': 'no label', 'Grafica': 'no label', });
 lyr_Nohaformadopartedeningntipodeorganizacin_1.set('fieldLabels', {'Cantón': 'no label', 'Provincia': 'no label', 'Grafica': 'no label', });
-lyr_Nohapertenecidoaningunaorganizacin_2.set('fieldLabels', {'Codigo': 'no label', 'Cantón': 'no label', 'Provincia': 'no label', 'Grafica': 'no label', 'PD58_PD58T': 'no label', });
+lyr_Nohapertenecidoaningunaorganizacin_2.set('fieldLabels', {'Cantón': 'no label', 'Provincia': 'no label', 'Grafica': 'no label', });
+
 lyr_Nohapertenecidoaningunaorganizacin_2.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
-});
+	});
